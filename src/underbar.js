@@ -99,6 +99,18 @@
 
   // Produce a duplicate-free version of the array.
   _.uniq = function(array) {
+    var noDups = {};
+    var results = [];
+
+    _.each(array, function(item) {
+      noDups[item] = item;
+    });
+
+    _.each(noDups, function(value) {
+      results.push(value);
+    });
+
+    return results;
   };
 
 
