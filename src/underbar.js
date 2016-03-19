@@ -373,7 +373,6 @@
   //
   // Hint: Use Array.isArray to check if something is an array
   _.flatten = function(nestedArray, result) {
-    var arrays = [];
     result = result || [];
 
     for (var i = 0; i < nestedArray.length; i++) {
