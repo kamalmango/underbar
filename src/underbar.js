@@ -356,7 +356,7 @@
       if (typeof functionOrKey === 'string') {
         results.push(collection[i][functionOrKey]());
       } else {
-        results.push(functionOrKey.apply(collection[i]));
+        results.push(functionOrKey.apply(collection[i], args));
       }
     }
     return results;
