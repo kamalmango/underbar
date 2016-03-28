@@ -458,6 +458,50 @@
   // Take the difference between one array and a number of other arrays.
   // Only the elements present in just the first array will remain.
   _.difference = function(array) {
+    var results = [];
+    var count = 0;
+
+    while (arguments[0].length > 0) {
+      var item = arguments[0].shift();
+      for (var i = 1; i < arguments.length; i++) {
+        /*
+        if (arguments[i].indexOf(item) === -1) {
+          count += 1;
+        }
+        */
+        var counter = 0
+        for (var j = 0; j < arguments[i].length; j++) {
+          if (arguments[i][j] === item) {
+            counter += 1;
+          }
+        }
+
+        if (counter === 0) {
+          count += 1;
+        }
+      }
+
+      if (count === arguments.length - 1) {
+        /*
+        if (results.indexOf(item) === -1) {
+          results.push(item);
+        }
+        */
+        var total = 0;
+        for (var j = 0; j < results.length; j++) {
+          if (results[j] === item) {
+            total += 1;
+          }
+        }
+
+        if (total === 0) {
+          results.push(item);
+        }
+      }
+      count = 0;
+    }
+
+    return results;
   };
 
   // Returns a function, that, when invoked, will only be triggered at most once
